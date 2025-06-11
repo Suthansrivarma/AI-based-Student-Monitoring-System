@@ -1,0 +1,130 @@
+.login-bg {
+  min-height: 100vh;
+  width: 100vw;
+  background: linear-gradient(135deg, #f8fafc 0%, #e0e7ef 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  border-radius: 2rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
+  overflow: hidden;
+  max-width: 900px;
+  width: 100%;
+  min-height: 480px;
+}
+
+.login-image {
+  flex: 1 1 50%;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 320px;
+  min-height: 320px;
+}
+.login-image img {
+  width: 90%;
+  max-width: 350px;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(31, 38, 135, 0.10);
+}
+
+.login-form-section {
+  flex: 1 1 50%;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #fcfcfc;
+}
+
+.login-logo {
+  width: 120px;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+}
+
+.login-title {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #232f3e;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+.login-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-form label {
+  font-weight: 600;
+  color: #232f3e;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.login-form input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid #e2e8f0;
+  border-radius: 0.5rem;
+  background: #fff;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+.login-form input:focus {
+  border-color: #fbbf24;
+  box-shadow: 0 0 0 2px #fbbf24;
+  outline: none;
+}
+.login-form button {
+  width: 100%;
+  background: linear-gradient(90deg, #fbbf24 0%, #f59e42 100%);
+  color: #232f3e;
+  font-weight: bold;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+.login-form button:hover {
+  background: linear-gradient(90deg, #f59e42 0%, #fbbf24 100%);
+  color: #111;
+}
+
+.login-link {
+  color: #2563eb;
+  text-align: center;
+  margin-top: 1.5rem;
+  display: block;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+@media (max-width: 900px) {
+  .login-container {
+    flex-direction: column;
+    min-width: 320px;
+    min-height: 0;
+    border-radius: 1.2rem;
+  }
+  .login-image {
+    min-height: 180px;
+    border-radius: 1.2rem 1.2rem 0 0;
+  }
+  .login-form-section {
+    padding: 2rem 1rem;
+  }
+}
