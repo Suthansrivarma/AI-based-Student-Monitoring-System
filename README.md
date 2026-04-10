@@ -1,3 +1,6 @@
+# Deployment 
+https://ai-based-student-monitoring-system.vercel.app/
+
 # AI-based Student Monitoring System
 
 Smart attendance and student monitoring platform with:
@@ -156,23 +159,4 @@ Change this in production.
   - `REACT_APP_API_URL=https://your-backend.onrender.com`
   - `REACT_APP_SOCKET_URL=https://your-backend.onrender.com`
 
-## Troubleshooting
-
-### CORS error (`No 'Access-Control-Allow-Origin' header`)
-- Ensure `CORS_ORIGIN` in Render exactly matches frontend URL.
-- No trailing slash in domain values.
-- Redeploy backend after env changes.
-
-### Tailwind CDN warning
-- Do not use `<script src="https://cdn.tailwindcss.com"></script>` in production.
-- This project is configured to use Tailwind through PostCSS.
-
-### `react-scripts permission denied` on Vercel
-- Do not commit `node_modules`.
-- Ensure `frontend/node_modules` and `server/node_modules` are git-ignored and removed from git tracking.
-
-## Security Notes
-- Never commit real credentials in `.env`.
-- Rotate exposed MongoDB and JWT secrets before production.
-- Restrict MongoDB Atlas network access and database users.
 
