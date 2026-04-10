@@ -11,8 +11,27 @@ require('dotenv').config();
 
 const app = express();
 const server = http.createServer(app);
+
+const allowedOrigins = (process.env.CORS_ORIGIN || 'http://localhost:3000')
+  .split(',')
+  .map(origin => origin.trim())
+  .filter(Boolean);
+
+const corsOptions = {
+  origin: (origin, callback) => {
+    // Allow non-browser clients (no Origin header) and configured browser origins.
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+      return;
+    }
+    callback(new Error(`CORS blocked for origin: ${origin}`));
+  },
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+  credentials: true
+};
+
 const io = new Server(server, {
-  cors: { origin: 'http://localhost:3000', methods: ['GET', 'POST'] }
+  cors: { origin: allowedOrigins, methods: ['GET', 'POST'], credentials: true }
 });
 
 // Multer setup for file uploads
@@ -27,7 +46,8 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 // Middleware
-app.use(cors());
+app.use(cors(corsOptions));
+app.options('*', cors(corsOptions));
 app.use(express.json());
 app.use('/uploads', express.static(path.join(__dirname, 'Uploads')));
 
